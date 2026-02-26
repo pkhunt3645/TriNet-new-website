@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: var(--font-montserrat);
+  --font-caveat: var(--font-caveat);
+  --font-poppins: var(--font-poppins);
+  --font-weight-semibold: 500;
+
+  --breakpoint-2xl: 90rem;
+  --breakpoint-3xl: 120rem;
+
+  --color-primary: #2157b1;
+  --color-secondary: #021935;
+  --color-theme-green: #5c8a10;
+  --color-txt-gray: #646464;
+  --color-light-cyan: #f6f9ff;
+  --color-light-gray: #cbd5e1;
+  --color-light-green: #5c8b0f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-montserrat);
+    font-style: normal;
+    @apply text-base box-border antialiased;
+  }
+}
+
+@layer components {
+  .tn-container {
+    @apply w-full mx-auto max-w-7xl xl:max-w-360 2xl:max-w-400 3xl:max-w-460 px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  .tn-section {
+    @apply w-full py-10 md:py-12 lg:py-14 xl:py-16 odd:bg-linear-to-br odd:from-primary/10 odd:to-white;
+  }
+
+  .tn-section-head {
+    @apply max-w-3xl mx-auto text-center flex flex-col items-center gap-4;
+  }
+
+  .tn-section-head--heading {
+    @apply flex items-center gap-2 text-primary font-bold text-lg xl:text-xl uppercase;
+  }
+
+  .tn-section-head--title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-secondary;
+  }
+
+  .tn-section-head--title span {
+    @apply bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .tn-section-head--description {
+    @apply max-w-2xl text-base md:text-lg text-txt-gray mx-auto;
+  }
+
+  .tn-input {
+    @apply w-full px-4 py-3 rounded-xl border border-light-gray shadow-sm bg-white text-secondary placeholder:text-txt-gray/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-500;
+  }
+}
+
+@layer utilities {
+  .swiper-pagination-custom {
+    display: flex !important;
+    gap: 0.5rem;
+  }
+
+  .swiper-pagination-custom .swiper-pagination-bullet {
+    width: .625rem;
+    height: .625rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    border-radius: 50%;
+    transition: all 300ms ease;
+    cursor: pointer;
+  }
+
+  .swiper-pagination-custom .swiper-pagination-bullet-active {
+    width: 2rem;
+    background-color: #2157b1;
+    border-radius: .625rem;
+  }
+
+  .swiper-pagination-custom .swiper-pagination-bullet:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  /* ROI Calculator Range Slider */
+  input[type="range"].roi-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="range"].roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2157b1;
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  input[type="range"].roi-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+
+  input[type="range"].roi-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2157b1;
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  input[type="range"].roi-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: transparent;
+    border: none;
+  }
+}
